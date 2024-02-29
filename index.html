@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>RT-H: Action Hierarchies Using Language</title>
+
+    <meta name="description" content="RT-H: Action Hierarchies Using Language">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+        <!--FACEBOOK-->
+    <meta property="og:image" content="https://rt-h.github.io/img/RT-H/teaser_v3.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rt-h.github.io/"/>
+    <meta property="og:title" content="RT-H: Action Hierarchies Using Language" />
+    <meta property="og:description" content="Project page for RT-H: Action Hierarchies Using Language." />
+
+        <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RT-H: Action Hierarchies Using Language" />
+    <meta name="twitter:description" content="Project page for RT-H: Action Hierarchies Using Language." />
+    <!-- <meta name="twitter:image" content="https://rt-h.github.io/img/random_img_frames.png" /> -->
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52J0PM8XKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-52J0PM8XKV');
+</script>
+	
+    <style>
+        .nav-pills {
+          position: relative;
+          display: inline;
+        }
+        .imtip {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                <strong><font size="+6">RT-H: Action Hierarchies Using Language</font></strong> </br> 
+                <!--<small>
+                    CoRL 2023
+                </small>-->
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                <br>
+                <li>Suneel Belkhale, Tianli Ding, Ted Xiao, Pierre Sermanet, Quan Vuong, Jonathan Tompson, Yevgen Chebotar*, Debidatta Dwibedi*, Dorsa Sadigh*
+                </li>
+                <br>
+                </ul>
+                <i>Google DeepMind Robotics</i>
+            </div>
+            <br>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <a href="https://rt-hierarchy.github.com/paper.pdf" target="_blank">
+                        <image src="img/paper.png" height="60px">
+                            <h4><strong>Paper</strong></h4>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="https://console.cloud.google.com/storage/browser/gdm-robovqa" target="_blank">
+                        <image src="img/storage_icon.png" height="60px">
+                            <h4><strong>Data</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/google-deepmind/robovqa/tree/main" target="_blank">
+                        <image src="img/github_icon.png" height="60px">
+                            <h4><strong>Code</strong></h4>
+                        </a>
+                    </li> -->
+                    <!-- <li>
+                        <a href="#videos">
+                        <image src="img/youtube_icon.png" height="60px">
+                            <h4><strong>Videos</strong></h4>
+                        </a>
+                    </li> -->
+                </ul>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+                <p style="text-align:center;">
+                    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="videos/RT-H/rt_h_video_website.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+
+                <h3> Language helps break down complex concepts into digestible pieces </h3>
+                    <p>
+                        <!-- Language enables us to break down complex concepts into digestible pieces.  -->
+                        Recent works in robot imitation learning have proposed learning language-conditioned policies that predict actions given visual observations and the high-level task specified in language. 
+                        These methods leverage the <b>structure of natural language</b> to share data between semantically similar tasks (e.g., "pick coke can" and "pick an apple") in multi-task datasets. 
+                        However, as tasks become more semantically diverse (e.g., "pick the apple" and "knock the bottle over"), sharing data between tasks becomes harder and thus learning to map high-level tasks to actions requires substantially more demonstration data. 
+                        <!-- To bridge this divide between tasks and actions, our insight is to teach the robot the language of actions, describing low-level motions with more fine-grained phrases like "move arm forward" or "close gripper". 
+                        Predicting these language motions as an intermediate step between high-level tasks and actions forces the policy to learn the shared structure of low-level motions across seemingly disparate tasks. 
+                        Furthermore, a policy that is conditioned on language motions can easily be corrected during execution through human-specified language motions. 
+                        This enables a new paradigm for flexible policies that can learn from human intervention in language. 
+                        Our method RT-H builds an action hierarchy using language motions: it first learns to predict language motions, and conditioned on this along with the high-level task, it then predicts actions, using visual context at all stages. 
+                        Experimentally we show that RT-H leverages this language-action hierarchy to learn policies that are more robust and flexible by effectively tapping into multi-task datasets. 
+                        We show that these policies not only allow for responding to language interventions, but can also learn from such interventions and outperform methods that learn from teleoperated interventions. -->
+                    </p>
+    
+            <ul class="nav nav-pills nav-justified">
+                <li>
+                    <a href="https://rt-h.github.io/img/RT-H/pick_apple.gif" target="_blank">
+                        <figure>
+                            <img src="img/RT-H/pick_apple.gif" class="img-responsive">
+                            <figcaption>Pick the apple</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://rt-h.github.io/img/RT-H/knock.gif" target="_blank">
+                        <figure>
+                            <img src="img/RT-H/knock.gif" class="img-responsive">
+                            <figcaption>Knock the bottle over</figcaption>
+                        </figure>
+                    </a>
+                </li>
+            </ul>
+
+            <h3> Our insight is to teach the robot the <i>language of actions</i> </h3>
+                <p>
+                    To bridge this divide between tasks and actions, our insight is to describe low-level motions with more fine-grained phrases like "move arm forward" or "close gripper". 
+                    Predicting these language motions as an intermediate step between high-level tasks and actions forces the policy to learn the shared structure of low-level motions across seemingly disparate tasks. 
+                    Furthermore, a policy that is conditioned on language motions can easily be corrected during execution through human-specified language motions. 
+                    This enables a new paradigm for flexible policies that can learn from human intervention in language. 
+                    Our method RT-H builds an action hierarchy using language motions: it first learns to predict language motions, and conditioned on this along with the high-level task, it then predicts actions, using visual context at all stages. 
+                    <!-- Experimentally we show that RT-H leverages this language-action hierarchy to learn policies that are more robust and flexible by effectively tapping into multi-task datasets. 
+                    We show that these policies not only allow for responding to language interventions, but can also learn from such interventions and outperform methods that learn from teleoperated interventions. -->
+                </p>
+                <a href="https://rt-h.github.io/img/RT-H/teaser_v3.png" target="_blank">
+                    <figure>
+                        <img src="img/RT-H/teaser_v3.png" class="img-responsive">
+                        <figcaption>RT-H learns the <i>language of actions</i>, representing low-level behaviors in language (<b>language motions</b>) as an intermediate layer in the policy. RT-H leverages a VLM co-trained on internet scale data to predict both the language motions from the task and the action from the language motions.</figcaption>
+                    </figure>
+                </a>
+        
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+            <h3> Method </h3>
+                <a href="https://rt-h.github.io/img/RT-H/method_v3.png" target="_blank">
+                    <figure>
+                        <img src="img/RT-H/method_v3.png" class="img-responsive">
+                        <figcaption>RT-H Overview, with the action hierarchy on the left and the intervention process on the right.</figcaption>
+                    </figure>
+                </a>
+                <br>
+                <figcaption> <b>Left:</b> Our method leverages language to create an action hierarchy for policy learning. We separate the action prediction problem into a language motion query (pi_h), which predicts a fine-grained language motion like "move arm forward" using the image tokens and task description tokens, and an action query (pi_l), which flexibly decodes this language motion into actions using the context of the task and the scene. 
+                </figcaption>
+                <br>
+                <!-- We leverage a single VLM for both queries based on RT-2 that encapsulate the broad prior knowledge in internet-scale data at each level of the action hierarchy. -->
+                <figcaption><b>Right:</b> a user can intervene directly on the action query to provide language motion corrections to robot behavior, for example "move arm left" instead of "move arm forward" here (top). To learn from corrections, we can update only the language motion query with the newly labeled language motion corrections (bottom). Then we deploy the updated model back to the action hierarchy (orange block).
+                </figcaption>
+            </div>
+        </div>
+
+        
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3> Experiments </h3>
+                <p>We evaluate RT-H on (1) how well it learns from diverse multi-task datasets, (2) how well it learns from intervention compared to teleoperated intervention methods, and (3) how well it generalizes to new scenes, objects, and tasks.</p>
+                <!-- Training -->
+                <h4>Training on Diverse Tasks</h4>
+                <a href="https://rt-h.github.io/img/RT-H/phase4_results_v7.png" target="_blank">
+                    <figure>
+                        <img src="img/RT-H/phase4_results_v7.png" class="img-responsive">
+                        <figcaption>Fig. 3 - Results on Diverse+Kitchen multi-task dataset, consisting of eight challenging evaluation tasks.
+                        </figcaption>
+                    </figure>
+                </a>
+                <br>
+                <p> <b>RT-H outperforms RT-2 by 15% on average</b>, getting higher performance on 6/8 of the tasks. 
+                    Replacing language with class labels (RT-H-OneHot) drops performance significantly. 
+                    Using action clusters via K-Means instead of the automated motion labeling procedure leads to a minor drop in performance as well (RT-H-Cluster), demonstrating the utility of language motions as the intermediate action layer. </p>
+
+                <br>
+
+
+                <div>
+                    <div style="width: 49%; float: left">
+                            <a href="https://rt-h.github.io/img/RT-H/contextual_v2.png" target="_blank">
+                                <figcaption>
+                                    Examples of <b>Contextuality</b> in RT-H evaluations.
+                                </figcaption>
+                                <p></p>
+                                <figure>
+                                    <img src="img/RT-H/contextual_v2.png" class="img-responsive">
+                                </figure>
+                                <br>
+                            </a>
+                            <p>These examples (taken from online evaluations of RT-H) show that  language motions depend on the <b>context</b> of the scene and task. 
+                                For each row, the given language motions ("move arm forward", "move arm left", "rotate arm right") manifest with different variations (columns) depending on the task and observation, such as subtle changes in speed, non-dominant axes of movement, e.g., rotation for "move arm forward", and even gripper positions.</p>
+                    </div>
+                    <div style="margin-left:51%">
+                            <a href="https://rt-h.github.io/img/RT-H/flexible_v4.png" target="_blank">
+                                <figcaption>
+                                    Examples of <b>Flexibility</b> in RT-H evaluations.
+                                </figcaption>
+                                <p></p>
+                                <figure>
+                                    <img src="img/RT-H/flexible_v4.png" class="img-responsive">
+                                </figure>
+                            </a>
+                            <br>
+                            <p> In the top row (a) we correct RT-H using two different task-completing language_motions for pulling the napkin out of the dispenser, either "right and down" or "up and backward", showing RT-H performs both correctly. 
+                                For the bottom two rows (b), we demonstrate that RT-H is often flexible even to completely out-of-distribution language motions for a task.</p>
+                    </div>
+
+                </div>
+                <br>
+
+                <div>
+                    <h5>RT-H Rollouts</h5>
+                
+                    <div style="width: 49%; float: left">
+                        <p style="text-align:center;">
+                            <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                                <source src="videos/RT-H/pull_napkin_cropped.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            Pull Napkin from Dispenser
+                        </p>
+                    </div>
+                    <div style="margin-left:51%">
+                        <p style="text-align:center;">
+                            <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                                <source src="videos/RT-H/close_jar_cropped.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            Close Pistachio Jar
+                        </p>
+                    </div>
+                </div>
+
+                <br>
+                <!--  -->
+                <h4>Training on Interventions</h4>
+                <a href="https://rt-h.github.io/img/RT-H/phase4_intervention_results_v8.png" target="_blank">
+                    <figure>
+                        <img src="img/RT-H/phase4_intervention_results_v8.png" class="img-responsive">
+                        <figcaption>Results for Corrections on models trained on the Diverse+Kitchen  multi-task dataset with additional intervention data, for the same eight evaluation tasks as above. RT-2-IWR is trained on teleoperation corrections from rolling out RT-2, while RT-H-Intervene is trained on skill corrections from rolling out RT-H. 
+                        </figcaption>
+                    </figure>
+                </a>
+                <br>
+                <p>
+                    We see RT-H-Intervene both improves upon RT-H (<b>from 40% to 63% with just 30 intervention episodes per task</b>) and substantially outperforms RT-2-IWR, suggesting that language motions are a much more sample efficient space to learn corrections than teleoperated actions.
+                </p>
+
+
+                <div>
+                    <h5>RT-H vs. RT-H-Intervene</h5>
+                    
+                        <div style="width: 49%; float: left">
+                            <p style="text-align:center;">
+                                <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                                    <source src="videos/RT-H/open_jar_failure_cropped.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                Open Jar - <b>Before</b>
+                            </p>
+                        </div>
+                        <div style="margin-left:51%">
+                            <p style="text-align:center;">
+                                <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                                    <source src="videos/RT-H/open_jar_cropped.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                Open Jar - <b>After</b>
+                            </p>
+                        </div>
+                    <!-- <br> -->
+                    <p>Before intervention training, RT-H moves its arm too low to grasp the jar lid. To correct this behavior, we can specify a correction online to tell the robot the move its arm up before hitting the jar. Training on these interventions, we find that RT-H-Intervene on the right is now better at opening the jar.</p>
+                    
+
+                    <div style="width: 49%; float: left">
+                        <p style="text-align:center;">
+                            <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                                <source src="videos/RT-H/move_bowl_away_fail_cropped.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            Move Bowl Away from Spout - <b>Before</b>
+                        </p>
+                    </div>
+                    <div style="margin-left:51%">
+                        <p style="text-align:center;">
+                            <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                                <source src="videos/RT-H/move_bowl_away_iv_cropped.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            Move Bowl Away from Spout - <b>After</b>
+                        </p>
+                    </div>
+
+                    <p>Similarly in this example, before intervention training, RT-H does not move its arm close enough to the bowl to grasp it. To correct this behavior, we can specify a correction online to tell the robot the move its arm forward more before it grasps. Training on these interventions, we find that RT-H-Intervene on the right is now better at moving the bowl away from the spout.</p>
+                    
+                </div>
+
+
+                <!--  -->
+                <h4>Generalization</h4>
+                <p>We test the ability of RT-H to generalize to new scenes, objects, and novel tasks (with human intervention)</p>
+                
+                <h5>New Objects</h5>
+                <a href="https://rt-h.github.io/img/RT-H/generalize_new_scenes_v2.png" target="_blank">
+                    <figure>
+                        <img src="img/RT-H/generalize_new_scenes_v2.png" class="img-responsive">
+                        <figcaption>Results when evaluating RT-H and baselines on a simpler set of tasks, but under novel backgrounds, lighting, and flooring. 
+                        </figcaption>
+                    </figure>
+                </a>
+                <br>
+                <p>
+                    We see that RT-H and RT-H-Joint (methods with language motion based action hierarchy) <b>generalize better to novel scenes by 8-12% on average compared to RT-2</b>.
+                </p>
+                <br>
+
+                <h5>New Objects</h5>
+                <a href="https://rt-h.github.io/img/RT-H/pick_novel_objects.png" target="_blank">
+                    <figure>
+                        <img src="img/RT-H/pick_novel_objects.png" class="img-responsive">
+                        <figcaption>Results when evaluating RT-H and baselines on the "pick" task, but under novel objects. 
+                        </figcaption>
+                    </figure>
+                </a>
+                <br>
+                <a href="https://rt-h.github.io/img/RT-H/move_novel_objects.png" target="_blank">
+                    <figure>
+                        <img src="img/RT-H/move_novel_objects.png" class="img-responsive">
+                        <figcaption>Results when evaluating RT-H and baselines on the "move" task, but under novel objects. 
+                        </figcaption>
+                    </figure>
+                </a>
+                <br>
+                <p>
+                    We see that RT-H <b>generalizes better to novel objects by 10% on average compared to RT-2</b> (rightmost "success" bars), and does even better at earlier stages of the task compared to RT-2.
+                </p>
+                <br>
+
+
+                <h5>New Tasks with Intervention</h5>
+
+
+                <div>
+                        <div style="width: 49%; float: left">
+                            <p style="text-align:center;">
+                                <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                                    <source src="videos/RT-H/unstack_cups_trimmed_faster_cropped.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                Unstack the Cups (with human intervention)
+                            </p>
+                        </div>
+                        <div style="margin-left:51%">
+                            <p style="text-align:center;">
+                                <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                                    <source src="videos/RT-H/apple_in_jar_better_trimmed_faster_cropped.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                Place Apple in the Jar (with human intervention)
+                            </p>
+                        </div>
+                </div>
+
+
+                <p>
+                    While RT-H cannot zero-shot perform these novel tasks, it shows promising signs at learning the <i>shared phases</i> of novel tasks. 
+                    RT-H can unstack the cups (left) with intervention only after the cups have been picked up, and similarly it can place an apple into a jar with intervention only after picking up and moving the apple close to the jar. 
+                    This highlights the promise of RT-H to generalize with less data than flat models.
+                </p>
+
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation 
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly>
+@inproceedings{rth2024arxiv,
+    title={RT-H: Action Hierarchies using Language},
+    author={Suneel Belkhale and Tianli Ding and Ted Xiao and Pierre Sermanet and Quon Vuong and Jonathan Tompson and Yevgen Chebotar and Debidatta Dwibedi and Dorsa Sadigh},
+    booktitle={arXiv preprint TODO},
+    year={2024}
+}</textarea>
+                </div>
+                </div>
+            </div>
+             
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                    <i>We thank Tran Pham, Dee M, Utsav Malla, April Zitkovich, and Elio Prado for their contributions to robot evaluation.</i>
+                    <br><br>
+                The website template was borrowed from <a href="http://jonbarron.info/">Jon Barron</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
