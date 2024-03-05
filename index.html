@@ -149,35 +149,35 @@
                 <!-- <ul class="nav nav-pills nav-justified" style="text-align:center;"> -->
                 <div style="width: 20%; float: left; text-align: center">
                     <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;padding:1px;">
-                        <source src="videos/RT-H/close_jar_cropped.mp4" type="video/mp4">
+                        <source src="videos/RT-H/close_jar_overlay.mov" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <b>Close Jar</b>
                 </div>
                 <div style="width: 20%; float: left; text-align: center">
                     <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;padding:1px;">
-                        <source src="videos/RT-H/pull_napkin_cropped.mp4" type="video/mp4">
+                        <source src="videos/RT-H/pull_napkin_overlay.mov" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <b>Pull Napkin</b>
                 </div>
                 <div style="width: 20%; float: left; text-align: center">
                     <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;padding:1px;">
-                        <source src="videos/RT-H/move_bowl_away_iv_cropped.mp4" type="video/mp4">
+                        <source src="videos/RT-H/move_bowl_away_overlay.mov" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <b>Move bowl out</b>
                 </div>
                 <div style="width: 20%; float: left; text-align: center">
                     <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;padding:1px;">
-                        <source src="videos/RT-H/open_jar_cropped.mp4" type="video/mp4">
+                        <source src="videos/RT-H/open_jar_overlay.mov" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <b>Open Jar</b>
                 </div>
                 <div style="width: 20%; float: left; text-align: center">
                     <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;padding:1px;">
-                        <source src="videos/RT-H/put_bowl_under_cropped_fast.mp4" type="video/mp4">
+                        <source src="videos/RT-H/put_bowl_under_overlay.mov" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <b>Put bowl under</b>
@@ -245,6 +245,7 @@
 
         <div class="row">
             <div class="col-md-12">
+                <h2>Describing Robot Motions in Language</h2>
                 <h3> Language encodes the shared structure between similar tasks</h3>
                     <p>
                         <!-- Language enables us to break down complex concepts into digestible pieces.  -->
@@ -265,17 +266,17 @@
                         <a href="https://rt-h.github.io/img/RT-H/pick_apple.gif" target="_blank">
                             <figure>
                                 <img src="img/RT-H/pick_apple.gif" class="img-responsive">
-                                <figcaption>Pick the apple</figcaption>
                             </figure>
                         </a>
+                        <figcaption>Pick the apple</figcaption>
                     </div>
                     <div style="width: 45%; float: right; text-align:center; margin: 0 auto">
                         <a href="https://rt-h.github.io/img/RT-H/knock.gif" target="_blank">
                             <figure>
                                 <img src="img/RT-H/knock.gif" class="img-responsive">
-                                <figcaption>Knock the bottle over</figcaption>
                             </figure>
                         </a>
+                        <figcaption>Knock the bottle over</figcaption>
                     </div>
                 </div>
 
@@ -309,9 +310,9 @@
                 <a href="https://rt-h.github.io/img/RT-H/intervention_process.gif" target="_blank">
                     <figure>
                         <img src="img/RT-H/intervention_process.gif" class="img-responsive">
-                        <figcaption>RT-H learns the <i>language of actions</i>, representing low-level behaviors in language (<b>language motions</b>) as an intermediate layer in the policy. RT-H leverages a VLM co-trained on internet scale data to predict both the language motions from the task and the action from the language motions.</figcaption>
                     </figure>
                 </a>
+                <figcaption>RT-H learns the <i>language of actions</i>, representing low-level behaviors in language (<b>language motions</b>) as an intermediate layer in the policy. RT-H leverages a VLM co-trained on internet scale data to predict both the language motions from the task and the action from the language motions.</figcaption>
         
             </div>
         </div>
@@ -328,9 +329,10 @@
                 <a href="https://rt-h.github.io/img/RT-H/method.gif" target="_blank">
                     <figure>
                         <img src="img/RT-H/method.gif" class="img-responsive">
-                        <figcaption>RT-H Overview, with the action hierarchy on the left and the intervention process on the right.</figcaption>
                     </figure>
                 </a>
+                <figcaption>RT-H Overview, with the action hierarchy on the left and the intervention process on the right.</figcaption>
+
                 <br>
                 <figcaption> <b>Left:</b> Our method leverages language to create an action hierarchy for policy learning. We separate the action prediction problem into a language motion query (pi_h), which predicts a fine-grained language motion like "move arm forward" using the image tokens and task description tokens, and an action query (pi_l), which flexibly decodes this language motion into actions using the context of the task and the scene. 
                 </figcaption>
@@ -355,10 +357,11 @@
                 <a href="https://rt-h.github.io/img/RT-H/phase4_results_v7.png" target="_blank">
                     <figure>
                         <img src="img/RT-H/phase4_results_v7.png" class="img-responsive">
-                        <figcaption>Fig. 3 - Results on Diverse+Kitchen multi-task dataset, consisting of eight challenging evaluation tasks.
-                        </figcaption>
+                        
                     </figure>
                 </a>
+                <figcaption>Fig. 3 - Results on Diverse+Kitchen multi-task dataset, consisting of eight challenging evaluation tasks.
+                </figcaption>
                 <br>
                 <p> <b>RT-H outperforms RT-2 by 15% on average</b>, getting higher performance on 6/8 of the tasks. 
                     Replacing language with class labels (RT-H-OneHot) drops performance significantly. 
@@ -444,10 +447,10 @@
                 <a href="https://rt-h.github.io/img/RT-H/phase4_intervention_results_v8.png" target="_blank">
                     <figure>
                         <img src="img/RT-H/phase4_intervention_results_v8.png" class="img-responsive">
-                        <figcaption>Results for Corrections on models trained on the Diverse+Kitchen  multi-task dataset with additional intervention data, for the same eight evaluation tasks as above. RT-2-IWR is trained on teleoperation corrections from rolling out RT-2, while RT-H-Intervene is trained on skill corrections from rolling out RT-H. 
-                        </figcaption>
                     </figure>
                 </a>
+                <figcaption>Results for Corrections on models trained on the Diverse+Kitchen  multi-task dataset with additional intervention data, for the same eight evaluation tasks as above. RT-2-IWR is trained on teleoperation corrections from rolling out RT-2, while RT-H-Intervene is trained on skill corrections from rolling out RT-H. 
+                </figcaption>
                 <br>
                 <p>
                     We see RT-H-Intervene both improves upon RT-H (<b>from 40% to 63% with just 30 intervention episodes per task</b>) and substantially outperforms RT-2-IWR, suggesting that language motions are a much more sample efficient space to learn corrections than teleoperated actions.
@@ -536,10 +539,11 @@
                 <a href="https://rt-h.github.io/img/RT-H/generalize_new_scenes_v2.png" target="_blank">
                     <figure>
                         <img src="img/RT-H/generalize_new_scenes_v2.png" class="img-responsive">
-                        <figcaption>Results when evaluating RT-H and baselines on a simpler set of tasks, but under novel backgrounds, lighting, and flooring. 
-                        </figcaption>
+                        
                     </figure>
                 </a>
+                <figcaption>Results when evaluating RT-H and baselines on a simpler set of tasks, but under novel backgrounds, lighting, and flooring. 
+                </figcaption>
                 <br>
                 <p>
                     We see that RT-H and RT-H-Joint (methods with language motion based action hierarchy) <b>generalize better to novel scenes by 8-12% on average compared to RT-2</b>.
@@ -548,21 +552,25 @@
 
                 <h4 class="bold-center">New Objects</h4>
                 <br>
-                <a href="https://rt-h.github.io/img/RT-H/pick_novel_objects.png" target="_blank">
+                <div style="width: 80%; margin: 0 auto;">
+                <a href="https://rt-h.github.io/img/RT-H/pick_novel_objects.png" target="_blank" style="width: 80%;">
                     <figure>
                         <img src="img/RT-H/pick_novel_objects.png" class="img-responsive">
-                        <figcaption>Results when evaluating RT-H and baselines on the "pick" task, but under novel objects. 
-                        </figcaption>
                     </figure>
                 </a>
+                <figcaption>Results when evaluating RT-H and baselines on the "pick" task, but under novel objects. 
+                </figcaption>
+                </div>
                 <br>
-                <a href="https://rt-h.github.io/img/RT-H/move_novel_objects.png" target="_blank">
+                <div style="width: 80%; margin: 0 auto;">
+                <a href="https://rt-h.github.io/img/RT-H/move_novel_objects.png" target="_blank" style="width: 80%;">
                     <figure>
                         <img src="img/RT-H/move_novel_objects.png" class="img-responsive">
-                        <figcaption>Results when evaluating RT-H and baselines on the "move" task, but under novel objects. 
-                        </figcaption>
                     </figure>
                 </a>
+                <figcaption>Results when evaluating RT-H and baselines on the "move" task, but under novel objects. 
+                </figcaption>
+                </div>
                 <br>
                 <p>
                     We see that RT-H <b>generalizes better to novel objects by 10% on average compared to RT-2</b> (rightmost "success" bars), and does even better at earlier stages of the task compared to RT-2.

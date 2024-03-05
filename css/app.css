@@ -174,3 +174,7 @@ span.highlight {
     border: solid 1px rgb(218, 218, 218) !important;
     height: 0px !important;
 }
+
+figcaption {
+  text-align: center;
+}
