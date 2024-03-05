@@ -160,3 +160,17 @@ span.highlight {
 .img-responsive {
     margin: 0 auto;
 }
+
+.authors {
+  font-size: 20px;
+}
+
+.bold-center {
+  font-weight: bold;
+  text-align: center;
+}
+
+.section-divider {
+    border: solid 1px rgb(218, 218, 218) !important;
+    height: 0px !important;
+}
