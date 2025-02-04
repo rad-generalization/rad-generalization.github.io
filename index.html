@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>RT-H: Action Hierarchies Using Language</title>
+    <title>Action-Free Reasoning for Policy Generalization</title>
 
-    <meta name="description" content="RT-H: Action Hierarchies Using Language">
+    <meta name="description" content="Action-Free Reasoning for Policy Generalization">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <base href="/"> -->
@@ -20,13 +20,13 @@
     <meta property="og:image:height" content="682">
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://rt-h.github.io/"/>
-    <meta property="og:title" content="RT-H: Action Hierarchies Using Language" />
+    <meta property="og:title" content="Action-Free Reasoning for Policy Generalization" />
     <meta property="og:description" content="Project page for RT-H: Action Hierarchies Using Language." />
 
         <!--TWITTER-->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="RT-H: Action Hierarchies Using Language" />
-    <meta name="twitter:description" content="Project page for RT-H: Action Hierarchies Using Language." />
+    <meta name="twitter:title" content="Action-Free Reasoning for Policy Generalization" />
+    <meta name="twitter:description" content="Project page for Action-Free Reasoning for Policy Generalization." />
     <!-- <meta name="twitter:image" content="https://rt-h.github.io/img/random_img_frames.png" /> -->
 
 
@@ -214,17 +214,7 @@
             <div class="col-md-12">
                 <h2>Abstract</h2>
                 <p>
-                    Language provides a way to break down complex concepts into digestible pieces. 
-                    Recent works in robot imitation learning have proposed learning language-conditioned policies that predict actions given visual observations and the high-level task specified in language. 
-                    These methods leverage the structure of natural language to share data between semantically similar tasks (e.g., "pick coke can" and "pick an apple") in multi-task datasets. 
-                    However, as tasks become more semantically diverse (e.g., "pick coke can" and "pour cup"), sharing data between tasks becomes harder and thus learning to map high-level tasks to actions requires substantially more demonstration data. 
-                    To bridge this divide between tasks and actions, our insight is to teach the robot the language of actions, describing low-level motions with more fine-grained phrases like "move arm forward" or "close gripper". 
-                    Predicting these language motions as an intermediate step between high-level tasks and actions forces the policy to learn the shared structure of low-level motions across seemingly disparate tasks. 
-                    Furthermore, a policy that is conditioned on language motions can easily be corrected during execution through human-specified language motions. 
-                    This enables a new paradigm for flexible policies that can learn from human intervention in language. 
-                    Our method RT-H builds an action hierarchy using language motions: it first learns to predict language motions, and conditioned on this along with the high-level task, it then predicts actions, using visual context at all stages. 
-                    Experimentally we show that RT-H leverages this language-action hierarchy to learn policies that are more robust and flexible by effectively tapping into multi-task datasets. 
-                    We show that these policies not only allow for responding to language interventions, but can also learn from such interventions and outperform methods that learn from teleoperated interventions.
+                    End-to-end imitation learning offers a promising approach for training robot policies. However, generalizing to new settings—such as unseen scenes, tasks, and object instances—remains a significant challenge. Although large-scale robot demonstration datasets have shown potential for inducing generalization, they are resource-intensive to scale. In contrast, human video data is abundant and diverse, presenting an attractive alternative. Yet, these human-video datasets lack action labels, complicating their use in imitation learning. Existing methods attempt to extract grounded action representations (e.g., hand poses), but resulting policies struggle to bridge the embodiment gap between human and robot actions. We propose an alternative approach: leveraging language-based reasoning from human videos - essential for guiding robot actions - to train generalizable robot policies. Building on recent advances in reasoning-based policy architectures, we introduce Reasoning through Action-free Data (RAD). RAD learns from both robot demonstration data (with reasoning and action labels) and action-free human video data (with only reasoning labels). The robot data teaches the model to map reasoning to low-level actions, while the action-free data enhances reasoning capabilities. Additionally, we release a new dataset of 3,377 human-hand demonstrations compatible with the Bridge V2 benchmark. This dataset includes chain-of-thought reasoning annotations and hand-tracking data to help facilitate future work on reasoning-driven robot learning. Our experiments demonstrate that RAD enables effective transfer across the embodiment gap, allowing robots to perform tasks seen only in action-free data. Furthermore, scaling up action-free reasoning data significantly improves policy performance and generalization to novel tasks. These results highlight the promise of reasoning-driven learning from action-free datasets for advancing generalizable robot control. 
                 </p>
             </div>
         </div>
@@ -630,9 +620,9 @@
                     <textarea id="bibtex" class="form-control" readonly>
 @inproceedings{rth2024arxiv,
     title={RT-H: Action Hierarchies using Language},
-    author={Suneel Belkhale and Tianli Ding and Ted Xiao and Pierre Sermanet and Quon Vuong and Jonathan Tompson and Yevgen Chebotar and Debidatta Dwibedi and Dorsa Sadigh},
+    author={Jaden Clark and Suvir Mirchandani and Dorsa Sadigh and Suneel Belkhale},
     booktitle={https://arxiv.org/abs/2403.01823},
-    year={2024}
+    year={2025}
 }</textarea>
                 </div>
                 </div>
