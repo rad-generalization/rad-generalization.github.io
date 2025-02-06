@@ -357,29 +357,27 @@
                 <div style="width: 80%; margin: 0 auto">
                     <div style="width: 45%; float: left">
                         <h3>
-                            <b>Contextuality</b> in RT-H evaluations.
+                            <b>ECoT</b> reasoning
                         </h3>
                         <a href="https://rt-h.github.io/img/RT-H/milk_bad.png" target="_blank">
                             <figure>
-                                <img src="img/RT-H/contextual_v2.png" class="img-responsive">
+                                <img src="img/RT-H/milk_bad.png" class="img-responsive">
                             </figure>
                         </a>
                         <br>
-                        <p>Language motions depend on the <b>context</b> of the scene and task. 
-                            For each row, the given language motions ("move arm forward", "move arm left", "rotate arm right") manifest with different variations (columns) depending on the task and observation, such as subtle changes in speed, non-dominant axes of movement, e.g., rotation for "move arm forward", and even gripper positions.</p>
+                        <p>ECoT is unable to detect the milk carton and predicts the incrrect move.</p>
                     </div>
                     <div style="width: 42%; float: right">
                         <h3>
-                            <b>Flexibility</b> in RT-H evaluations.
+                            <b>RAD</b> reasoning.
                         </h3>
                         <a href="https://rt-h.github.io/img/RT-H/milk_good.png" target="_blank">
                             <figure>
-                                <img src="img/RT-H/flexible_v4.png" class="img-responsive">
+                                <img src="img/RT-Hmilk_good.png" class="img-responsive">
                             </figure>
                         </a>
                         <br>
-                        <p> In the top row (a) we correct RT-H using two different task-completing language motions for pulling the napkin out of the dispenser, either "right and down" or "up and backward". 
-                            For the bottom two rows (b), we demonstrate that RT-H is often flexible even to completely out-of-distribution language motions for a task.</p>
+                        <p> RAD learns to identify the milk carton, and identifies the correct move from only human video data.</p>
                     </div>
 
                 </div>
