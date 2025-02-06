@@ -308,17 +308,17 @@
             <div class="col-md-12">
             <h2> Method </h2>
                 <p>
-                    Our method RT-H builds an action hierarchy using language motions: it first learns to predict language motions, and conditioned on this along with the high-level task, it then predicts actions, using visual context at all stages. 
+                    RAD generates reasonings from both human video data and robot data 
                 </p>
                 <a href="https://rt-h.github.io/img/RT-H/method_slow.gif" target="_blank">
                     <figure>
                         <img src="img/RT-H/rad.png" class="img-responsive">
                     </figure>
                 </a>
-                <figcaption>RT-H Overview, with the action hierarchy on the left and the intervention process on the right.</figcaption>
+                <figcaption>RAD full pipeline overview</figcaption>
 
                 <br>
-                <figcaption> <b>Left:</b> Our method leverages language to create an action hierarchy for policy learning. We separate the action prediction problem into a language motion query (pi_h), which predicts a fine-grained language motion like "move arm forward" using the image tokens and task description tokens, and an action query (pi_l), which flexibly decodes this language motion into actions using the context of the task and the scene. 
+                <figcaption> <b>Left:</b> \ACRO generates reasonings on both human and robot data using a suite of pretrained models. Scene descriptors and object bounding boxes for both human and robot data are generated using Prismatic VLM and Grounding DINO. While SAM and proprioception can be used to generate movement primitives for robot data, \ACRO relies on HaMeR to track human hand data for primitive generation. For both data types, the scene descriptions, bounding boxes, and movement primitives (as well as actions for robot data) are synthesized by Gemini into reasoning data in natural language. These reasonings are tokenized and fed into a mixed dataset containing both human and robot data for co-finetuning.
                 </figcaption>
                 <br>
                 <!-- We leverage a single VLM for both queries based on RT-2 that encapsulate the broad prior knowledge in internet-scale data at each level of the action hierarchy. -->
