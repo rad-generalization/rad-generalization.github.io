@@ -330,11 +330,12 @@
         <div class="row">
             <div class="col-md-12">
                 <h2> Experiments </h2>
-                <p>We evaluate RAD across a variety of generalization tasks. These tasks comprise three main axes of generalization: <b>(1) Compositional Generalization </b>: In this axis, the objects, tasks, and scenes are all seen in pre-training data (Bridge V2 data), but not in those particular configurations. For example, pizza and salt both exist in Bridge V2, but salt is never placed on the pizza. <b>(2) New Object Generalization </b>: Unseen objects for known behaviors (e.g., "pick cup" to "pick plushie". <b>(3) Scene Generalization </b>: Generalizing to novel backgrounds and distractor objects for seen tasks; for example, picking up a known object with a pot in the background..</p>
+                <p>We evaluate RAD across a variety of generalization tasks. These tasks comprise three main axes of generalization: <b>(1) Compositional Generalization </b>: In this axis, the objects, tasks, and scenes are all seen in pre-training data (Bridge V2 data), but not in those particular configurations. For example, pizza and salt both exist in Bridge V2, but salt is never placed on the pizza. <b>(2) New Object Generalization</b>: Unseen objects for known behaviors (e.g., "pick cup" to "pick plushie". <b>(3) Scene Generalization </b>: Generalizing to novel backgrounds and distractor objects for seen tasks; for example, picking up a known object with a pot in the background.</p>
                 <!-- Training -->
                 <br>
                 <h3 class="bold-center">Cross-Embodiment Transfer</h3>
                 <br>
+		<p> First, we assess if \ACRO can learn accurate reasonings and robot actions on new tasks that are present only in human video demonstrations. </p>
                 <a href="https://rt-h.github.io/img/RT-H/phase4_results_v7.png" target="_blank">
                     <figure>
                         <img src="img/RT-H/ce.png" class="img-responsive">
@@ -516,6 +517,10 @@
                 <p>To truly leverage large-scale video data, generalist robot policies must learn from demonstrations in diverse scenes. Thus, we first train \ACRO with human video data in unseen environments to see how well it can incorporate this data, and then we compare its performance to \ACRO trained on in-distribution human video data (i.e., same environment for both human video and robot evaluation).</p>
                 <br>
 
+		    
+
+                <h4 class="bold-center">Data from outside target environment</h4>
+
 		<div style="width: 80%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
 		  <!-- Left side (Image) -->
 		  <div style="width: 45%;">
@@ -530,24 +535,15 @@
 		    </video>
 		  </div>
 		</div>
-
-                <h4 class="bold-center">Data from outside target environment</h4>
-                <br>
-                <a href="https://rt-h.github.io/img/RT-H/generalize_new_scenes_v2.png" target="_blank">
-                    <figure>
-                        <img src="img/RT-H/generalize_new_scenes_v2.png" class="img-responsive">
-                        
-                    </figure>
-                </a>
-                <figcaption>Results when evaluating RT-H and baselines on a simpler set of tasks, but under novel backgrounds, lighting, and flooring. 
-                </figcaption>
-                <br>
+  
                 <p>
-                    We see that RT-H and RT-H-Joint (methods with language motion based action hierarchy) <b>generalize better to novel scenes by 8-12% on average compared to RT-2</b>.
+                    We collected data for four unseen tasks in a new tabletop setups (unseen in Bridge V2 data). Then, we evaluate models trained on this new enviroment data in the original Bridge Toy Sink environment. We find that models trained on this data outperform ECoT by 16% and ECoT-GT by 13%.
                 </p>
                 <br>
 
                 <h4 class="bold-center">Scaling data collection</h4>
+
+		<p> We assessed how RAD performance scales with increased data for the same tasks collected in-distribution (in the miniature Toy Sink setup) versus out-of-distribution (various real world kitchen and office environments). To do so, we collected 100 additional demos for the "pick up the tape" task in the Toy Sink setup. We also collected 250 out-of-domain demos for "pick up the tape" in novel environments such as real kitchens, countertops, and desks. Then, we trained RAD on two different data mixtures.</p>
 
 		<div style="width: 80%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
 		  <!-- Left side (Image) -->
@@ -564,29 +560,9 @@
 		  </div>
 		</div>
 		
-                <br>
-                <div style="width: 80%; margin: 0 auto;">
-                <a href="https://rt-h.github.io/img/RT-H/pick_novel_objects.png" target="_blank" style="width: 80%;">
-                    <figure>
-                        <img src="img/RT-H/pick_novel_objects.png" class="img-responsive">
-                    </figure>
-                </a>
-                <figcaption>Results when evaluating RT-H and baselines on the "pick" task, but under novel objects. 
-                </figcaption>
-                </div>
-                <br>
-                <div style="width: 80%; margin: 0 auto;">
-                <a href="https://rt-h.github.io/img/RT-H/move_novel_objects.png" target="_blank" style="width: 80%;">
-                    <figure>
-                        <img src="img/RT-H/move_novel_objects.png" class="img-responsive">
-                    </figure>
-                </a>
-                <figcaption>Results when evaluating RT-H and baselines on the "move" task, but under novel objects. 
-                </figcaption>
-                </div>
-                <br>
+
                 <p>
-                    We see that RT-H <b>generalizes better to novel objects by 10% on average compared to RT-2</b> (rightmost "success" bars), and does even better at earlier stages of the task compared to RT-2.
+                   We find that RAD models trained on both in-domain (+30% success) and out-of-domain data (+25% success) show improved performance over the original model. This indicates RAD scales well with diverse training data.
                 </p>
                 <br>
 
@@ -594,19 +570,6 @@
 
             </div>
 
-
-            <div class="row">
-                <div class="col-md-12">
-
-                <p>
-                    While RT-H cannot zero-shot perform these novel tasks, it shows promising signs at learning the <i>shared phases</i> of novel tasks. 
-                    RT-H can unstack the cups (left) with intervention only after the cups have been picked up, and similarly it can place an apple into a jar with intervention only after picking up and moving the apple close to the jar. 
-                    This highlights the promise of RT-H to generalize with less data than flat models.
-                </p>
-
-                </div>
-
-            </div>
 
         <hr class="section-divider">
 
@@ -637,7 +600,7 @@
                     Acknowledgements
                 </h3>
                 <p class="text-justify">
-                    <i>We thank Priya Sundaresan for and Juntao Ren for code for setting up HaMeR tracking. We thank Jonathan Yang, Satvik Sharma, Rahul Chand, and Priya Sundaresan for paper writing support. This work was supported by NSF \#2006388 and \#2125511, DARPA YFA Grant \#W911NF2210214, ONR N00014-21-1-2298, Toyota Research Institute, and DARPA TIAMAT project.</i>
+                    <i>We thank Priya Sundaresan for and Juntao Ren for code for setting up HaMeR tracking. We thank Jonathan Yang, Satvik Sharma, Rahul Chand, and Priya Sundaresan for paper writing support. This work was supported by NSF #2006388 and #2125511, DARPA YFA Grant #W911NF2210214, ONR N00014-21-1-2298, Toyota Research Institute, and DARPA TIAMAT project.</i>
                     <br><br>
                 The website template was borrowed from RT-H which was borrowed from <a href="http://jonbarron.info/">Jon Barron</a>.
                 </p>
