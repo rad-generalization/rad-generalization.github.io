@@ -341,12 +341,10 @@
                         
                     </figure>
                 </a>
-                <figcaption>Fig. 3 - Results on Diverse+Kitchen multi-task dataset, consisting of eight challenging evaluation tasks.
+                <figcaption>Fig. 3 - Results for models trained on new tasks represented only in human video data.
                 </figcaption>
                 <br>
-                <p> <b>RT-H outperforms RT-2 by 15% on average</b>, getting higher performance on 6/8 of the tasks. 
-                    Replacing language with class labels (RT-H-OneHot) drops performance significantly. 
-                    Using action clusters via K-Means instead of the automated motion labeling procedure leads to a minor drop in performance as well (RT-H-Cluster), demonstrating the utility of language motions as the intermediate action layer. </p>
+                <p> <b>RAD outperforms baselines where human video data was trained on, but no new robot data was provided. RAD-A is RAD trained only on human video data for the given axis of generalization. ECoT-GT is finetuned on the same data as RAD, but only using human hand locations (and not the full reasoning data) </p>
 
             </div>
         </div>
