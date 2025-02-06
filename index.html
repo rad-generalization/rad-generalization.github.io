@@ -464,11 +464,11 @@
                         <img src="img/RT-H/gen.png" class="img-responsive">
                     </figure>
                 </a>
-                <figcaption>Results for Corrections on models trained on the Diverse+Kitchen  multi-task dataset with additional intervention data, for the same eight evaluation tasks as above. RT-2-IWR is trained on teleoperation corrections from rolling out RT-2, while RT-H-Intervene is trained on skill corrections from rolling out RT-H. 
+                <figcaption> Ultimately, training on large datasets of human video data should enable VLAs to generalize not only to human demonstrated tasks, but also to completely unseen scenarios. To explore if RAD enables training more general models, we evaluate our model against ECoT on 10 novel tasks (unseen in both human and robot data) comprising all three generalization axes.
                 </figcaption>
                 <br>
                 <p>
-                    We see RT-H-Intervene both improves upon RT-H (<b>from 40% to 63% with just 30 intervention episodes per task</b>) and substantially outperforms RT-2-IWR, suggesting that language motions are a much more sample efficient space to learn corrections than teleoperated actions.
+                    RAD compared to ECoT for tasks contained in neither human or robot data. RAD shows improved performance across all three axes of generalization.
                 </p>
 
 
@@ -478,7 +478,7 @@
 		      <source src="videos/RT-H/sauce.mov" type="video/mp4">
 		      Your browser does not support the video tag.
 		    </video>
-		    <p><i>Compositional: </i>Put the sauce on the plate</p>
+		    <p><i>Compositional: </i>Put the green bottle on the plate</p>
 		  </div>
 		  
 		  <div class="col-md-4 text-center">
