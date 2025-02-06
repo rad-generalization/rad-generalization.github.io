@@ -97,7 +97,7 @@
                 <li>
                     <a href="https://jadenvc.github.io">Jaden Clark</a><sup>1</sup>, 
 		    <a href="https://suvirpmirchandani.com">Suvir Mirchandani</a><sup>1</sup>, 
-                    <a href="https://dorsa.fyi/">Dorsa Sadigh*</a><sup>1</sup>,
+                    <a href="https://dorsa.fyi/">Dorsa Sadigh</a><sup>1</sup>,
 		    <a href="https://suneel.belkhale.com">Suneel Belkhale</a><sup>1</sup>
                 </li>
                 <br>
@@ -151,7 +151,7 @@
                 </div>
                 <div style="width: 20%; float: left; text-align: center">
                     <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;padding:1px;">
-                        <source src="videos/RT-H/plushie.mov" type="video/mp4">
+                        <source src="videos/RT-H/plushie.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <b>Pick up the plushie</b>
@@ -220,7 +220,7 @@
 
         <p style="text-align:center; width: 80%; margin: 0 auto">
             <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
-                <source src="videos/RT-H/rt_h_video_website.mp4" type="video/mp4">
+                <source src="videos/RT-H/ar_video-2.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </p>
@@ -230,12 +230,11 @@
 
         <div class="row">
             <div class="col-md-12">
-                <h2>Describing Robot Motions in Language</h2>
+                <h2>Grounding human video demonstrations through reasoning</h2>
                 <h3> Language encodes the shared structure between similar tasks</h3>
                     <p>
                         <!-- Language enables us to break down complex concepts into digestible pieces.  -->
-                        Language-conditioned policies in robotics leverage the <b>structure of natural language</b> to share data between semantically similar tasks (e.g., "pick coke can" and "pick an apple") in multi-task datasets. 
-                        But as tasks become more semantically diverse (e.g., "pick the apple" and "knock the bottle over" below), sharing data between tasks is much harder. 
+                        Human videos are plentiful, but it is unclear how to leverage this  data for training robot policies. We posit that learning <b>reasoning</b> (made up of high level scene and planning info) from human video data can effectively bridge the embodiment gap.
                         <!-- To bridge this divide between tasks and actions, our insight is to teach the robot the language of actions, describing low-level motions with more fine-grained phrases like "move arm forward" or "close gripper". 
                         Predicting these language motions as an intermediate step between high-level tasks and actions forces the policy to learn the shared structure of low-level motions across seemingly disparate tasks. 
                         Furthermore, a policy that is conditioned on language motions can easily be corrected during execution through human-specified language motions. 
