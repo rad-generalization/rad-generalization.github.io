@@ -318,12 +318,9 @@
                 <figcaption>RAD full pipeline overview</figcaption>
 
                 <br>
-                <figcaption> <b>Left:</b> \ACRO generates reasonings on both human and robot data using a suite of pretrained models. Scene descriptors and object bounding boxes for both human and robot data are generated using Prismatic VLM and Grounding DINO. While SAM and proprioception can be used to generate movement primitives for robot data, \ACRO relies on HaMeR to track human hand data for primitive generation. For both data types, the scene descriptions, bounding boxes, and movement primitives (as well as actions for robot data) are synthesized by Gemini into reasoning data in natural language. These reasonings are tokenized and fed into a mixed dataset containing both human and robot data for co-finetuning.
+                <figcaption> RAD generates reasonings on both human and robot data using a suite of pretrained models. Scene descriptors and object bounding boxes for both human and robot data are generated using Prismatic VLM and Grounding DINO. While SAM and proprioception can be used to generate movement primitives for robot data, \ACRO relies on HaMeR to track human hand data for primitive generation. For both data types, the scene descriptions, bounding boxes, and movement primitives (as well as actions for robot data) are synthesized by Gemini into reasoning data in natural language. These reasonings are tokenized and fed into a mixed dataset containing both human and robot data for co-finetuning.
                 </figcaption>
                 <br>
-                <!-- We leverage a single VLM for both queries based on RT-2 that encapsulate the broad prior knowledge in internet-scale data at each level of the action hierarchy. -->
-                <figcaption><b>Right:</b> a user can intervene directly on the action query to provide language motion corrections to robot behavior, for example "move arm left" instead of "move arm forward" here (top). To learn from corrections, we can update only the language motion query with the newly labeled language motion corrections (bottom). Then we deploy the updated model back to the action hierarchy (orange block).
-                </figcaption>
             </div>
         </div>
 
