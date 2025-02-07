@@ -286,16 +286,18 @@
                     Language motions enables a new paradigm for flexible policies that can learn from human intervention in language. We can provide corrective language motions to the policy at test time, and it will follow these motions to improve on the task. Then, we can learn from these interventions to improve the policy downstream.
                 </p> -->
 
+	<h3>Human videos contain vast amounts of higher-level reasoning that guide robot action prediction. This reasoning information can be captured via language.</h3>
+
 	<div style="width: 80%; text-align: center; margin: 0 auto">
                     <a href="https://rt-h.github.io/img/RT-H/tigerpick.gif" target="_blank">
                         <figure>
                             <img src="img/RT-H/tigerpick.gif" class="img-responsive">
                         </figure>
                     </a>
-			<figcaption    0: "<task>Pick up the tiger.</task><plan>1. Approach tiger; 2. Descend and grasp; 3. Lift and retract.</plan><subtask>Approach tiger.</subtask><subtask_reason>The tiger is on the desk, but other objects may be in the way. Initial approach is necessary to position the arm for grasping.</subtask_reason><move>move left down</move><move_reason>Initial positioning to avoid collision with obstacles and start approaching the target from a direction to clear the keyboard.</move_reason>",</figcaption>
+			<figcaption    0: " From each frame in this video, we can extract reasoning such as the following: Task: Pick up the tiger. Plan: 1. Approach tiger; 2. Descend and grasp; 3. Lift and retract. Subtask: Approach tiger. The tiger is on the desk, but other objects may be in the way. Initial approach is necessary to position the arm for grasping. Move: move left down. Move Reason: Initial positioning to avoid collision with obstacles and start approaching the target from a direction to clear the keyboard </figcaption>
                 </div>
 
-            <h3>Human videos contain vast amounts of higher-level reasoning that guide robot action prediction. This reasoning information can be captured via language.</h3>
+            
 
             <br>
                  <p style="text-align:center; width: 80%; margin: 0 auto">
@@ -305,7 +307,7 @@
 	            </video>
 	        </p>
 	<p>
-                   RAD learns new takss from only human video data
+                   This enables RAD to learn new takss from only human video data
                 </p>
             </div>
         </div> -->
