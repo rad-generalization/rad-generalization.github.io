@@ -318,7 +318,7 @@
                 <figcaption>RAD full pipeline overview</figcaption>
 
                 <br>
-                <figcaption> RAD generates reasonings on both human and robot data using a suite of pretrained models. Scene descriptors and object bounding boxes for both human and robot data are generated using Prismatic VLM and Grounding DINO. While SAM and proprioception can be used to generate movement primitives for robot data, \ACRO relies on HaMeR to track human hand data for primitive generation. For both data types, the scene descriptions, bounding boxes, and movement primitives (as well as actions for robot data) are synthesized by Gemini into reasoning data in natural language. These reasonings are tokenized and fed into a mixed dataset containing both human and robot data for co-finetuning.
+                <figcaption> RAD generates reasonings on both human and robot data using a suite of pretrained models. Scene descriptors and object bounding boxes for both human and robot data are generated using Prismatic VLM and Grounding DINO. While SAM and proprioception can be used to generate movement primitives for robot data, RAD relies on HaMeR to track human hand data for primitive generation. For both data types, the scene descriptions, bounding boxes, and movement primitives (as well as actions for robot data) are synthesized by Gemini into reasoning data in natural language. These reasonings are tokenized and fed into a mixed dataset containing both human and robot data for co-finetuning.
                 </figcaption>
                 <br>
             </div>
@@ -335,7 +335,7 @@
                 <br>
                 <h3 class="bold-center">Cross-Embodiment Transfer</h3>
                 <br>
-		<p> First, we assess if \ACRO can learn accurate reasonings and robot actions on new tasks that are present only in human video demonstrations. </p>
+		<p> First, we assess if RAD can learn accurate reasonings and robot actions on new tasks that are present only in human video demonstrations. </p>
                 <a href="https://rt-h.github.io/img/RT-H/phase4_results_v7.png" target="_blank">
                     <figure>
                         <img src="img/RT-H/ce.png" class="img-responsive">
