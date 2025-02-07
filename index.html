@@ -279,15 +279,15 @@
                     We predict these language motions as an <b>intermediate step</b> between high-level tasks and actions, forcing the policy to learn the shared motion structure across tasks.
                     <!-- Experimentally we show that RT-H leverages this language-action hierarchy to learn policies that are more robust and flexible by effectively tapping into multi-task datasets. 
                     We show that these policies not only allow for responding to language interventions, but can also learn from such interventions and outperform methods that learn from teleoperated interventions. -->
-                </p>
+<!--                 </p> -->
 
                 <div style="width: 80%; text-align: center; margin: 0 auto">
                     <a href="https://rt-h.github.io/img/RT-H/tigerpick.gif" target="_blank">
                         <figure>
-                            <img src="img/RT-H/shared_motions_slow.gif" class="img-responsive">
+                            <img src="img/RT-H/tigerpick.gif" class="img-responsive">
                         </figure>
                     </a>
-			<figcaption>RAD full pipeline overview</figcaption>
+			<figcaption    0: "<task>Pick up the tiger.</task><plan>1. Approach tiger; 2. Descend and grasp; 3. Lift and retract.</plan><subtask>Approach tiger.</subtask><subtask_reason>The tiger is on the desk, but other objects may be in the way. Initial approach is necessary to position the arm for grasping.</subtask_reason><move>move left down</move><move_reason>Initial positioning to avoid collision with obstacles and start approaching the target from a direction to clear the keyboard.</move_reason>",</figcaption>
                 </div>
 
             <h3>Human videos contain vast amounts of higher-level reasoning that guide robot action prediction. This reasoning information can be captured via language.</h3>
@@ -314,9 +314,7 @@
         <div class="row">
             <div class="col-md-12">
             <h2> Method </h2>
-                <p>
-                    RAD generates reasonings from both human video data and robot data 
-                </p>
+
                 <a href="https://rt-h.github.io/img/RT-H/method_slow.gif" target="_blank">
                     <figure>
                         <img src="img/RT-H/rad.png" class="img-responsive">
