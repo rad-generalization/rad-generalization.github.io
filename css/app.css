@@ -178,3 +178,8 @@ span.highlight {
 figcaption {
   text-align: center;
 }
+
+p,
+figcaption {
+  font-weight: normal !important;
+}
